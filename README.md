@@ -57,7 +57,7 @@ Documentation and command cheat-sheet for the OverTheWire Bandit wargame.
 
 ---
 
-📌 **Levels 21–34 Notes & Cheat-Sheet**
+## 🛠️ Levels 21–34 Notes & Cheat-Sheet
 
 * **Level 21 → 22 (Cron Job Inspection):**
   Inspected `/etc/cron.d/cronjob_bandit22` to trace the scheduled shell script executing under `bandit22` context.
