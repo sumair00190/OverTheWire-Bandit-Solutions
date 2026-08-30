@@ -57,5 +57,66 @@ Documentation and command cheat-sheet for the OverTheWire Bandit wargame.
 
 ---
 
-📌 **Status:** Levels 0–20 Documented  
-🔄 **Next Update:** Levels 21–30
+📌 **Levels 21–34 Notes & Cheat-Sheet**
+
+* **Level 21 → 22 (Cron Job Inspection):**
+  Inspected `/etc/cron.d/cronjob_bandit22` to trace the scheduled shell script executing under `bandit22` context.
+  `cat /etc/cron.d/cronjob_bandit22`
+
+* **Level 22 → 23 (MD5 Hashed Cron Scripts):**
+  Extracted user credentials by evaluating the shell script logic that mapped `$myname` via MD5 hashing.
+  `echo I am bandit23 | md5sum | cut -d ' ' -f 1`
+
+* **Level 23 → 24 (Cron Job Script Execution):**
+  Created a writable temporary script inside `/var/spool/bandit24/foo` to dump the flag to a readable location.
+  `echo '#!/bin/bash' > /tmp/bandit24/script.sh`
+  `echo 'cat /etc/bandit_pass/bandit24 > /tmp/bandit24/password' >> /tmp/bandit24/script.sh`
+  `chmod 777 /tmp/bandit24/script.sh`
+  `chmod 777 /tmp/bandit24`
+  `cp /tmp/bandit24/script.sh /var/spool/bandit24/foo/`
+
+* **Level 24 → 25 (Pin Brute-Forcing over Port):**
+  Brute-forced a 4-digit PIN combined with the current level password using a basic shell loop sent to Netcat port 30002.
+  `for i in {0000..9999}; do echo "<password> $i"; done | nc localhost 30002`
+
+* **Level 25 → 26 (More/Vi Shell Escape):**
+  Resized the terminal window to force `more` pagination, then escaped into `vi` editor to launch a shell (`:e /bin/bash`).
+
+* **Level 26 → 27 (Custom Shell Bypass):**
+  Bypassed the bandit26 custom shell setup via `vi` commands to execute the setuid binary.
+
+* **Level 27 → 28 (Git Clone):**
+  Cloned the remote Git repository over SSH to retrieve the flag stored inside `README`.
+  `git clone ssh://bandit27-git@bandit.labs.overthewire.org:2220/home/bandit27-git/repo`
+
+* **Level 28 → 29 (Git Commit History):**
+  Inspected git commit logs to retrieve credentials removed in previous commits.
+  `git log -p`
+
+* **Level 29 → 30 (Git Branches):**
+  Checked hidden branches using `git branch -a` and checked out dev branches to extract stored flags.
+  `git checkout dev`
+
+* **Level 30 → 31 (Git Tags):**
+  Inspected Git tags using `git tag` and read tag data via `git show secret`.
+
+* **Level 31 → 32 (Git Push & Pre-Receive Hook):**
+  Pushed a tracked file to the master branch after resolving user configuration requirements.
+  `echo "May I come in?" > key.txt`
+  `git add -f key.txt`
+  `git config user.email "bandit31@example.com"`
+  `git config user.name "bandit31"`
+  `git commit -m "pushing key"`
+  `git push origin master`
+
+* **Level 32 → 33 (Restricted Shell Escape):**
+  Escaped the UPPERCASE SHELL by invoking the $0 parameter to launch the default shell binary.
+  `>> $0`
+
+* **Level 33 → 34 (Completion):**
+  Read the final welcome note and verified game completion.
+
+---
+
+📌 **Status:** Levels 0–34 Fully Documented (Wargame Completed)
+🔄 **Next Update:** TryHackMe & Network Security Labs
