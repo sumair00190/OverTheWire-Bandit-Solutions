@@ -1,10 +1,10 @@
-# 🚩 OverTheWire: Bandit Wargame Solutions
+# OverTheWire: Bandit Wargame Solutions
 
 Documentation and command cheat-sheet for the OverTheWire Bandit wargame.
 
 ---
 
-## 🛠️ Levels 0–10 Notes
+## Levels 0–10 Notes
 
 * **Levels 0–3 (Navigation & Special Files):** Handled spaces and hyphens using `cat ./-file-` and `cat "file name"`. Located hidden dotfiles with `ls -la`.
 * **Levels 4–6 (Searching & Permissions):** Filtered files by size, user, and non-executable properties while suppressing error noise using `find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null` and extracted strings with `strings data.txt`.
@@ -12,7 +12,7 @@ Documentation and command cheat-sheet for the OverTheWire Bandit wargame.
 
 ---
 
-## 🛠️ Levels 11–20 Notes & Cheat-Sheet
+## Levels 11–20 Notes & Cheat-Sheet
 
 * **Level 11 → 12 (ROT13 Cipher):**  
   Decoded ROT13 encoded text using character translation:  
@@ -57,7 +57,7 @@ Documentation and command cheat-sheet for the OverTheWire Bandit wargame.
 
 ---
 
-## 🛠️ Levels 21–34 Notes & Cheat-Sheet
+## Levels 21–34 Notes & Cheat-Sheet
 
 * **Level 21 → 22 (Cron Job Inspection):**
   Inspected `/etc/cron.d/cronjob_bandit22` to trace the scheduled shell script executing under `bandit22` context.
@@ -118,5 +118,5 @@ Documentation and command cheat-sheet for the OverTheWire Bandit wargame.
 
 ---
 
-📌 **Status:** Levels 0–34 Fully Documented (Wargame Completed)
-🔄 **Next Update:** TryHackMe & Network Security Labs
+ * Status: Levels 0–34 Fully Documented (Wargame Completed)
+ * *Next Update:** TryHackMe & Network Security Labs
